@@ -1,0 +1,3 @@
+metadata-files:
+  - .pandoc/common.yaml
+pdf-engine: xelatex

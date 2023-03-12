@@ -1,0 +1,13 @@
+geometry: margin=1in
+mainfont: OpenSans-Regular
+mainfontoptions:
+    - Extension=.ttf
+    - Path=media/fonts/open-sans/
+    - BoldFont=OpenSans-Bold
+    - ItalicFont=OpenSans-Italic
+    - BoldItalicFont=OpenSans-BoldItalic
+monofont: iosevka-cosmic.ttc
+monofontoptions:
+    - Path=media/fonts/
+    - Contextuals=Alternate
+    - Ligatures=TeX
