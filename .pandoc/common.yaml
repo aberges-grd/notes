@@ -1,3 +1,4 @@
+# author: Adrián Berges
 geometry: margin=1in
 mainfont: OpenSans-Regular
 mainfontoptions:
@@ -11,3 +12,6 @@ monofontoptions:
     - Path=media/fonts/
     - Contextuals=Alternate
     - Ligatures=TeX
+linkcolor: blue
+citecolor: darkblue
+citation-style: .pandoc/apa.csl

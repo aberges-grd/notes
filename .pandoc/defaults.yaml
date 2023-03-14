@@ -1,3 +1,9 @@
 metadata-files:
   - .pandoc/common.yaml
 pdf-engine: xelatex
+filters:
+  - .pandoc/pandoc-crossref
+  - citeproc
+# citeproc: true
+metadata:
+  bibliography: notes/bibliography.bibtex
