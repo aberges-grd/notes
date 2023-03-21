@@ -3,6 +3,10 @@ title: Plantilla _Clean Architecture_
 abstract: |
     Se trata de anotar el uso de la plantilla creada por Diego, 
     ya que parece ser que tiene una curva de aprendizaje algo alta.
+header-includes: |
+    \usepackage{dirtree}
+pandoc-options:
+  - --filter=pandoc-include
 ---
 
 # Explicación de _Clean Architecture_
@@ -138,9 +142,63 @@ el _Domain Service_.
 
 Disponible en [el siguiente enlace](https://github.com/diegoreico/PythonBase).
 
+Pasemos a ver su estructura general:
+
+\input{notes/includes/tree_general.tex}
+
+A este nivel, ...
+
+\input{notes/includes/tree_module_detail.tex}
+
 # Ejemplo de aplicación concreta (proyecto PYCTO)
 
+Tras una exploración inicial de los datos, se produjo un notebook con diversos pipelines
+para obtener datos de una tabla previamente construida y procesarlos.
 
+Para transformarlo a esta arquitectura, se tendrán un módulo (`analytics`) para las
+pipelines de datos con un segundo módulo (`data_wrangling`) que se encargue
+exclusivamente de crear las tablas `student_exercises_master_table` y
+`first_last_performance`.
+
+## Módulo analytics
+
+#### Casos de uso
+
+El cliente pide las siguientes funcionalidades:
+
+- Obtener porcentaje de alumos que mejoran en alguna habilidad.
+- Obtener alumnos tipo A y tipo B (mejoran en todas las habilidades / mejoran en ninguna
+  habilidad).
+- Obtener frecuencia de realización de las actividades.
+
+#### Infraestructura
+
+En `infrastructure` tendría que ir una adaptación de código de `common` para acceder al
+repositorio de datos y extraer los datos para los casos de uso.  En `common` tendrá que
+ir el acceso a una BBDD postgres o mysql.
+
+#### Dominio
+
+Los servicios encapsulan la lógica:
+
+- pipeline first_last_performance
+- pipeline A/B
+- pipeline alumnos que mejoran
+- pipeline frecuencia de realización.
+
+Las entidades son clases que modelan el dominio. En este caso:
+
+- SQLResult contiene una dataframe que es el punto de partida para las pipelines de los
+  servicios.
+- Resumen crosstab
+- Resumen general (porcentajes)
+- Gráficas (opcional)
+
+#### Controlador
+
+TODO
+
+## Módulo Data Wrangling
 
 # Referencias
 
