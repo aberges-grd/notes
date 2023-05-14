@@ -181,7 +181,6 @@ ir el acceso a una BBDD postgres o mysql.
 
 Los servicios encapsulan la lógica:
 
-- pipeline first_last_performance
 - pipeline A/B
 - pipeline alumnos que mejoran
 - pipeline frecuencia de realización.
@@ -200,7 +199,27 @@ TODO
 
 ## Módulo Data Wrangling
 
-TODO
+Este módulo se encarga de refinar datos de la BBDD o la Data Warehouse en tablas más próximas a los casos de uso del módulo de analytics.
+
+Sus elementos principales son algunas consultas de SQL y una pipeline de transformación de datasets.
+
+#### Casos de uso
+
+- creación de "tabla maestra".
+- creación de tabla "first_last_performance".
+
+#### Infraestructura
+
+Acceso a BBDD Postgres o MySQL
+
+#### Dominio
+
+Servicios:
+
+- pipeline first_last_performance.
+- pipeline "tabla maestra".
+
+#### Controlador
 
 # Referencias
 
